@@ -19,7 +19,8 @@ class http_rudy(Thread):
     def run(self):
         while self.running:
             try:
-                print('Packet Sent :'+str(self.intercount))
+                self.intercount+=1
+                print('One Thread send Packet Count :'+str(self.intercount))
                 #소켓 생성
                 self.socks=socket.socket(socket.AF_INET,socket.SOCK_STREAM)
                 #소켓 목적지 host와 연결
