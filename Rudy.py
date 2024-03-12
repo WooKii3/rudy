@@ -1,3 +1,4 @@
+# 원본 코드 https://m.blog.naver.com/stop2y/221018093734
 import time
 import random
 import socket
