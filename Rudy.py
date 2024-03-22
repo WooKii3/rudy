@@ -132,14 +132,17 @@ def parse():
     parser.add_argument('-i',type=str,help='--target Target IP HOSTNAME | IP',required=True)
     parser.add_argument('-p',type=int,help='--port Target PORT Default 80',default=80)
     parser.add_argument('-t',type=int,help='--threads Number of THREAD Default 256',default=256)
-    parser.add_argument('-min',type=int,help='--min byte',default=1)
-    parser.add_argument('-max',type=int,help='--max byte',default=3)
+    parser.add_argument('-min',type=int,help='--min byte default 1',default=1)
+    parser.add_argument('-max',type=int,help='--max byte default 3',default=3)
     args=parser.parse_args()
     return args
 
 if __name__=='__main__':
     args=parse()
     arg_userage()
+    if args.min > args.max:
+        print(f"Error: Min {args.min}bytes가 Max {args.max}bytes보다 큽니다.\n다시입력해주세요.")
+        sys.exit(1)
     # 사용자 입력 IP 값
     if args.i:
         host=args.i
